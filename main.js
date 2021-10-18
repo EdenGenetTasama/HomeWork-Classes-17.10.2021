@@ -161,15 +161,15 @@ class City extends Community {
 }
 
 class Country extends Community {
-  fullInfo() {
-    return `${super.fullInfo()} , Country`;
-  }
+    fullInfo() {
+        return `${super.fullInfo()} , Country`;
+    }
 }
 
 class Village extends Community {
-  fullInfo() {
-    return `${super.fullInfo()} , Village`;
-  }
+    fullInfo() {
+        return `${super.fullInfo()} , Village`;
+    }
 }
 
 let VillageOne = new Village("rehovot", 50);
@@ -177,6 +177,18 @@ let CityOne = new City("ramatGan", 36);
 
 console.log(Community.largerNumCitizen(VillageOne, CityOne));
 
+
+// btnSendID.onclick=()=>{
+//     let communityType = new Community(
+//       console.log(option.value);
+//       );
+// }
+
+
+selectID.onchange=()=>{
+    return selectID.options[selectID.selectedIndex].value;
+
+}
 /************************************************************************* */
 
 class AllCars {
@@ -193,7 +205,7 @@ class AllCars {
     return `Wheels number:${this.wheelNum}, Smk: ${this.smk} , Color:${this.color}`;
   }
 
-  largerSmk(array) {
+  static largerSmk=(array)=> {
     let maxSmk = 0;
     let objectSmk = null;
     for (let i = 0; i < array.length; i++) {
@@ -202,8 +214,8 @@ class AllCars {
         objectSmk = array[i];
       }
     }
-    console.log(objectSmk);
-    // return objectSmk;
+    // console.log(objectSmk);
+    return objectSmk;
   }
 }
 
@@ -248,4 +260,4 @@ let TrackTwo = new Track(9, 7000, "Blue");
 let TrackThree = new Track(1, 1000, "Yellow");
 // let array = [TrackOne,TrackTwo,TrackThree];
 
-console.log(AllCars.largerSmk(array));
+console.log(AllCars.largerSmk([TrackOne,TrackTwo,TrackThree]));

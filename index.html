@@ -1,28 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    
+
     <section>
         <form>
-            <input type="text" placeholder="Full Name" id="fullNameID">
-            <input type="text" placeholder="User Name" id="UserNameID">
-            <input type="email" placeholder="Email" id="emailID">
-            <input type="password" placeholder="Password" id="passwordID">
+            <h1>Sign-up Form:</h1>
+            <input type="text" placeholder="Full Name" id="fullNameID"><br>
+            <input type="text" placeholder="User Name" id="UserNameID"><br>
+            <input type="email" placeholder="Email" id="emailID"><br>
+            <input type="password" placeholder="Password" id="passwordID"><br>
             <button type="button" id="btnID">Send</button>
         </form>
 
-    <div id="showTableInfo">
+        <div id="showTableInfo">
 
-    </div>
+        </div>
     </section>
 
 
-    <script src="./main.js"></script>
+    <section>
+        <form>
+            <h1>Settlement form:</h1>
+            <select id="selectID">
+                <option value="Country">Country</option>
+                <option value="City">City</option>
+                <option value="Village">Village</option>
+            </select><br>
+            <input type="text" placeholder="City Name" id="cityNameID"><br>
+            <input type="text" placeholder="Citizen Number" id="numCitizenID"><br>
+            <button type="button" id="btnSendID">Send</button>
+
+        </form>
+
+    </section>
+   
+
+        <script src="./main.js"></script>
 </body>
+
 </html>
