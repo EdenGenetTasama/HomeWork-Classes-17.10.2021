@@ -147,10 +147,16 @@ class Community {
   fullInfo() {
     return `name:${this.cityName} , number : ${this.numCitizen}`;
   }
-  static largerNumCitizen(citizenOne, citizenTwo) {
-    return citizenOne.numCitizen > citizenTwo.numCitizen
-      ? citizenOne
-      : citizenTwo;
+  static largerNumCitizen(array) {
+    let maxNumPeople = 0;
+    let objectPeople = null;
+    for (let i = 0; i < array.length; i++) {
+      if (array[i].numCitizen > maxNumPeople) {
+        maxNumPeople = array[i].numCitizen;
+        objectPeople = array[i];
+      }
+    }
+    return objectPeople;
   }
 }
 
@@ -161,34 +167,42 @@ class City extends Community {
 }
 
 class Country extends Community {
-    fullInfo() {
-        return `${super.fullInfo()} , Country`;
-    }
+  fullInfo() {
+    return `${super.fullInfo()} , Country`;
+  }
 }
 
 class Village extends Community {
-    fullInfo() {
-        return `${super.fullInfo()} , Village`;
-    }
+  fullInfo() {
+    return `${super.fullInfo()} , Village`;
+  }
 }
 
-let VillageOne = new Village("rehovot", 50);
+
+let VillageOne = new Village("rehovot", 100);
 let CityOne = new City("ramatGan", 36);
+let CountryOne = new Country("Yahod", 60);
 
-console.log(Community.largerNumCitizen(VillageOne, CityOne));
+console.log(Community.largerNumCitizen([VillageOne, CityOne, CountryOne]));
 
+btnSendID.onclick = () => {
+  let selectValue = selectID.options[selectID.selectedIndex].value;
+  switch (selectValue) {
+    case "City":
+      let communityTypeOne = new City(cityNameID.value, numCitizenID.value);
+      console.log(communityTypeOne);
+      break;
+    case "Country":
+      let communityTypeTwo = new Country(cityNameID.value, numCitizenID.value);
+      console.log(communityTypeTwo);
+      break;
+    case "Village":
+      let communityTypeThree = new Village(cityNameID.value, numCitizenID.value);
+      console.log(communityTypeThree);
+      break;
+  }
+};
 
-// btnSendID.onclick=()=>{
-//     let communityType = new Community(
-//       console.log(option.value);
-//       );
-// }
-
-
-selectID.onchange=()=>{
-    return selectID.options[selectID.selectedIndex].value;
-
-}
 /************************************************************************* */
 
 class AllCars {
@@ -205,7 +219,7 @@ class AllCars {
     return `Wheels number:${this.wheelNum}, Smk: ${this.smk} , Color:${this.color}`;
   }
 
-  static largerSmk=(array)=> {
+  static largerSmk = (array) => {
     let maxSmk = 0;
     let objectSmk = null;
     for (let i = 0; i < array.length; i++) {
@@ -214,9 +228,8 @@ class AllCars {
         objectSmk = array[i];
       }
     }
-    // console.log(objectSmk);
     return objectSmk;
-  }
+  };
 }
 
 class Track extends AllCars {
@@ -258,6 +271,5 @@ class Privet extends AllCars {
 let TrackOne = new Track(4, 2000, "Green");
 let TrackTwo = new Track(9, 7000, "Blue");
 let TrackThree = new Track(1, 1000, "Yellow");
-// let array = [TrackOne,TrackTwo,TrackThree];
 
-console.log(AllCars.largerSmk([TrackOne,TrackTwo,TrackThree]));
+console.log(AllCars.largerSmk([TrackOne, TrackTwo, TrackThree]));
